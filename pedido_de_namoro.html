@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Namoro</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quer namorar comigo?</h1>
+    <button id="yesButton">Sim</button>
+    <button id="noButton">Não</button>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+
+        const moveButton = () => {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - noButton.clientWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - noButton.clientHeight));
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        };
+
+        noButton.addEventListener('mouseover', moveButton);
+        noButton.addEventListener('touchstart', moveButton);
+
+        document.getElementById('yesButton').addEventListener('click', () => {
+            alert('Parabéns pela escolha, eu te amo muito minha princesa!');
+        });
+
+        noButton.addEventListener('click', () => {
+            alert('Ah, você conseguiu clicar! 😢');
+        });
+    </script>
+</body>
+</html>
